@@ -11,11 +11,9 @@ jobs:
         with:
           node-version: 14.0.0
       - name: npm install, build
-        run: |
-          yarn
-          npm build
+      - run: yarn
+      - run: yarn build
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.3.x
           lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
-          
